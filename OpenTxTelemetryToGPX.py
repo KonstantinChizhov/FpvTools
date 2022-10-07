@@ -22,7 +22,7 @@ def ReadLog(logPath):
 	return telemetry, header
 	
 def ConvertTelemetryToTrackData(logPath):
-	print('Converting file: ' + file)
+	print('Converting file: ' + logPath)
 	telemetry, header = ReadLog(logPath)
 
 	root = ET.Element("gpx", attrib={'version': '1.0'})
