@@ -50,6 +50,8 @@ def ConvertTelemetryToTrackData(logPath):
 		trkpt = ET.SubElement(trkseg, "trkpt", attrib={'lat':lat, 'lon':lon})
 		ET.SubElement(trkpt, 'ele').text  = pt[altIndex]
 		ET.SubElement(trkpt, 'time').text  = f"{date}T{time}Z"
+		ET.SubElement(trkpt, 'sat').text  = pt[header['Sats']]
+		ET.SubElement(trkpt, 'magvar').text  = pt[header['Yaw(rad)']]
 
 	tree = ET.ElementTree(root)
 	pre, ext = os.path.splitext(logPath)
